@@ -11,6 +11,7 @@ import android.graphics.Canvas;
 //import android.graphics.Path;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -178,12 +179,15 @@ public class DrawingView extends View {
 	static final int MODE_CAMERA_MANIPULATION = 1; // the user is panning/zooming the camera
 	static final int MODE_SHAPE_MANIPULATION = 2; // the user is translating/rotating/scaling a shape
 	static final int MODE_LASSO = 3; // the user is drawing a lasso to select shapes
+	static final int MODE_CREATE = 4; // the user is drawing a new shape
 	int currentMode = MODE_NEUTRAL;
 
 	// This is only used when currentMode==MODE_SHAPE_MANIPULATION, otherwise it is equal to -1
 	int indexOfShapeBeingManipulated = -1;
 
 	MyButton lassoButton = new MyButton( "Lasso", 10, 70, 140, 140 );
+	MyButton createButton = new MyButton("Créer", 160, 70, 140, 140);
+	ArrayList< Point2D > creatorPolygonPoints = new ArrayList<Point2D>();
 	
 	OnTouchListener touchListener;
 	
@@ -261,6 +265,19 @@ public class DrawingView extends View {
 			if ( lassoCursor != null ) {
 				gw.setColor(1.0f,0.0f,0.0f,0.5f);
 				gw.fillPolygon( lassoCursor.getPositions() );
+			}
+		}
+		
+		createButton.draw(gw, currentMode == MODE_CREATE);
+		
+		if ( currentMode == MODE_CREATE ){
+			// Ordre 2
+			Log.d("HEY!", "Mode create is ON BITCHEZ!!!");
+			
+			MyCursor createCursor = cursorContainer.getCursorByType(MyCursor.TYPE_DRAGGING, 0);
+			if (createCursor != null){
+				gw.setColor(0.0f, 1.0f, 0.0f, 0.5f);
+				gw.fillPolygon( createCursor.getPositions() );
 			}
 		}
 
@@ -350,6 +367,11 @@ public class DrawingView extends View {
 								currentMode = MODE_LASSO;
 								cursor.setType( MyCursor.TYPE_BUTTON );
 							}
+							else if ( createButton.contains(p_pixels) ){
+								currentMode = MODE_CREATE;
+								// Order 1
+								Log.d("HEY!", "Turning on mode create");
+							}
 							else if ( indexOfShapeBeingManipulated >= 0 ) {
 								currentMode = MODE_SHAPE_MANIPULATION;
 								cursor.setType( MyCursor.TYPE_DRAGGING );
@@ -433,6 +455,52 @@ public class DrawingView extends View {
 								currentMode = MODE_NEUTRAL;
 							}
 						}
+						break;
+						
+					case MODE_CREATE :
+						// 3
+						Log.d("HEY!", "Doing mode create stuff");
+
+						if ( type == MotionEvent.ACTION_DOWN ) {
+							if ( cursorContainer.getNumCursorsOfGivenType(MyCursor.TYPE_DRAGGING) == 1 )
+								// there's already a finger dragging out the lasso
+								cursor.setType(MyCursor.TYPE_IGNORE);
+							else
+								cursor.setType(MyCursor.TYPE_DRAGGING);
+						}
+						else if ( type == MotionEvent.ACTION_MOVE ) {
+							// no further updating necessary here
+						}
+						else if ( type == MotionEvent.ACTION_UP ) {
+							if ( cursor.getType() == MyCursor.TYPE_DRAGGING ) {
+								// complete a lasso selection
+								//#selectedShapes.clear();
+
+								// Need to transform the positions of the cursor from pixels to world space coordinates.
+								// We will store the world space coordinates in the following data structure.
+								creatorPolygonPoints.clear();
+								for ( Point2D p : cursor.getPositions() )
+									creatorPolygonPoints.add( gw.convertPixelsToWorldSpaceUnits( p ) );
+								//#
+//								for ( Shape s : shapeContainer.shapes ) {
+//									if ( s.isContainedInLassoPolygon( lassoPolygonPoints ) ) {
+//										selectedShapes.add( s );
+//									}
+//								}
+							}
+							cursorContainer.removeCursorByIndex( cursorIndex );
+							if ( cursorContainer.getNumCursors() == 0 ) {
+								currentMode = MODE_NEUTRAL;
+								// Ordre finish
+								Log.d("HEY!", "Finishing mode create stuff");
+								
+								if (creatorPolygonPoints.size() > 0){
+									shapeContainer.addShape(Point2DUtil.computeConvexHull(creatorPolygonPoints));
+									creatorPolygonPoints.clear();
+								}
+							}
+						}
+						
 						break;
 					}
 					
