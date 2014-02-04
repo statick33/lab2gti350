@@ -179,7 +179,7 @@ public class DrawingView extends View {
 	static final int MODE_CAMERA_MANIPULATION = 1; // the user is panning/zooming the camera
 	static final int MODE_SHAPE_MANIPULATION = 2; // the user is translating/rotating/scaling a shape
 	static final int MODE_LASSO = 3; // the user is drawing a lasso to select shapes
-	static final int MODE_CREATE = 4	
+	static final int MODE_CREATE = 4;	
 	static final int MODE_DELETE = 5;	int currentMode = MODE_NEUTRAL;
 
 	// This is only used when currentMode==MODE_SHAPE_MANIPULATION, otherwise it is equal to -1
@@ -262,6 +262,8 @@ public class DrawingView extends View {
 		lassoButton.draw( gw, currentMode == MODE_LASSO );
 		
 		deleteButton.draw( gw, currentMode == MODE_DELETE );
+		
+		createButton.draw(gw, currentMode == MODE_CREATE);
 
 		if ( currentMode == MODE_LASSO ) {
 			MyCursor lassoCursor = cursorContainer.getCursorByType( MyCursor.TYPE_DRAGGING, 0 );
@@ -277,10 +279,10 @@ public class DrawingView extends View {
 				gw.fillPolygon( lassoCursor.getPositions() );
 			}
 		}
-	if ( currentMode == MODE_DELETE ) {
+	if ( currentMode == MODE_CREATE ) {
 			MyCursor lassoCursor = cursorContainer.getCursorByType( MyCursor.TYPE_DRAGGING, 0 );
 			if ( lassoCursor != null ) {
-				gw.setColor(1.0f,0.0f,0.0f,0.5f);
+				gw.setColor(0.0f,1.0f,0.0f,0.5f);
 				gw.fillPolygon( lassoCursor.getPositions() );
 			}
 		}
