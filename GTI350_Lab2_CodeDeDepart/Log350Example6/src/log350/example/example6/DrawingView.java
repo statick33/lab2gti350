@@ -412,7 +412,32 @@ else if ( deleteButton.contains(p_pixels) ) {
 						}
 						break;
 					case MODE_SHAPE_MANIPULATION :
-						if ( cursorContainer.getNumCursors() == 2 && type == MotionEvent.ACTION_MOVE && indexOfShapeBeingManipulated>=0 ) {
+						/*TODO Complete*/
+						if(selectedShapes.size() > 0){
+							
+							for( int i = 0; i < selectedShapes.size(); ++i ) {
+								Shape s = selectedShapes.get(i);
+								MyCursor cursor_0 = cursorContainer.getCursorByIndex( 0 );
+								Point2DUtil.transformPointsBasedOnDisplacementOfOnePoint(
+										s.getPoints(),
+										gw.convertPixelsToWorldSpaceUnits( cursor_0.getPreviousPosition() ),
+										gw.convertPixelsToWorldSpaceUnits( cursor_0.getCurrentPosition() )
+									);
+								
+							}
+							
+						}
+						else{
+							MyCursor cursor_0 = cursorContainer.getCursorByIndex( 0 );
+							Shape s = shapeContainer.getShape( indexOfShapeBeingManipulated );
+							Point2DUtil.transformPointsBasedOnDisplacementOfOnePoint(
+									s.getPoints(),
+									gw.convertPixelsToWorldSpaceUnits( cursor_0.getPreviousPosition() ),
+									gw.convertPixelsToWorldSpaceUnits( cursor_0.getCurrentPosition() )
+								);
+							
+						}
+						 if ( cursorContainer.getNumCursors() == 2 && type == MotionEvent.ACTION_MOVE && indexOfShapeBeingManipulated>=0 ) {
 							MyCursor cursor0 = cursorContainer.getCursorByIndex( 0 );
 							MyCursor cursor1 = cursorContainer.getCursorByIndex( 1 );
 							Shape shape = shapeContainer.getShape( indexOfShapeBeingManipulated );
@@ -460,6 +485,8 @@ else if ( deleteButton.contains(p_pixels) ) {
 										selectedShapes.add( s );
 									}
 								}
+								Log.d("HEY!", "LASSO MOVING");
+								
 							}
 							cursorContainer.removeCursorByIndex( cursorIndex );
 							if ( cursorContainer.getNumCursors() == 0 ) {
