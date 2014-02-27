@@ -2,16 +2,16 @@
 	include('header.php'); 
 ?>
 <style type="text/css">
-.players {
-	padding-top:10px;
-}
-.players td{
-	padding: 0 50px;
+.image{
+	width:150px;
+	height:150px;
+	background-color:pink;
+	text-align:center;
 }
 </style>
 	<h3> Username1 </h3>
-	<div>
-		
+	<div class="image">
+		Image profil
 	</div>
 <?php
 	include('footer.php'); 
