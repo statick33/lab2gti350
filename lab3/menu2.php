@@ -3,7 +3,7 @@
 	<div id="buttonHolder">
 		<div style="margin-left:100px !important" id="button"><a href="home.php" alt="Home"> Home</a></div>
 		<div id="separator"></div>
-		<div id="button">Team Standings</div>
+		<div id="button"><a href="teams.php" alt="Team Standings">Team Standings</a></div>
 		<div id="separator"></div>
 		<div id="button"><a href="players.php" alt="Players"> Players</a></div>
 		<div id="separator"></div>
