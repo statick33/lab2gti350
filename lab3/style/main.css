@@ -4,10 +4,11 @@
 	margin-left:auto;
 	margin-right:auto;
 	border:1px solid black;
-	margin-top:100px;
+	/*margin-top:100px;*/
 	padding-left:20px;
 	padding-right:20px;
-	padding-top:-15px;
+	padding-top:15px;
+	padding-bottom:15px;
 }
 
 #content h3

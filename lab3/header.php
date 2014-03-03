@@ -6,7 +6,7 @@
 </head>
 <body>
 	<div id="header">
-		<?php include('menu.php'); ?>
+		<?php include('menu2.php'); ?>
 	</div>
 	<div id="content">
 	

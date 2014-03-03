@@ -1,6 +1,6 @@
 img
 {
-	visibility:hidden !important;
+	display:none !important;
 }
 body
 {
@@ -53,8 +53,8 @@ body
 
 #frameMenu1
 {
-	float:left;
-	margin-left:20px;
+	/*float:left;
+	margin-left:20px;*/
 	z-index:1;
 	margin-top:-1px;
 }
