@@ -9,6 +9,16 @@ body
 	background-color:black;
 }
 
+a
+{
+	color:#a69a75;
+	font-weight:bold;
+}
+a:visited
+{
+	color:#a69a75;
+	font-weight:bold;
+}
 #header
 {
 	width:100%;
@@ -19,21 +29,29 @@ body
 
 #button
 {
+	display:block;
 	background-image:url('images/button.png');
 	background-repeat:no-repeat;
 	width:209px;
 	text-align:center;
 	height:60px;
-	color:#a69a75;
 	font-family:arial;
 	font-weight:bold;
-	padding-top:15px;
 	font-size:20px;
 	cursor:pointer;
 	float:left;
 	z-index:2;
-	margin-left:-19px;
-	margin-top:-1px;
+	line-height:60px;
+	color:#a69a75;
+}
+#button a
+{
+	margin-top:15px;
+	color:#a69a75;
+}
+#button a:visited
+{
+	color:#a69a75;
 }
 #separator
 {
@@ -48,30 +66,72 @@ body
 }
 #menu
 {
-	width: 1190px;
+	width: 100%;
 	height:50px;
 	margin-left:auto;
 	margin-right:auto;
+	text-align:center;
 
-}
-
-#frameMenu1
-{
-	float:left;
-	margin-left:20px;
-	z-index:1;
-	margin-top:-1px;
-}
-#frameMenu2
-{
-	float:left;
-	margin-left:-20px;
 }
 
 #buttonHolder
 {
-	height:50px;
-	margin-left:184px;
 }
 
+#centeredmenu {
+   float:left;
+   width:100%;
+   overflow:hidden;
+   position:relative;
+}
+#centeredmenu ul {
+   clear:left;
+   float:left;
+   list-style:none;
+   margin:0;
+   padding:0;
+   position:relative;
+   left:50%;
+   text-align:center;
+}
+#centeredmenu ul li {
+   display:block;
+   float:left;
+   list-style:none;
+   margin:0;
+   padding:0;
+   position:relative;
+   right:50%;
+}
+#centeredmenu ul li a {
+   display:block;
+   text-decoration:none;
+   line-height:1.3em;
 
+}
+#loginBox
+{
+   clear:left;
+   float:left;
+   list-style:none;
+   margin:0;
+   padding:0;
+   position:relative;
+   left:50%;
+   text-align:center;
+   margin-top:-30px;
+}
+#loginBox 
+{
+}
+#loginBox li
+{
+   display:block;
+   float:left;
+   list-style:none;
+   margin:0;
+   padding:0;
+   position:relative;
+   right:50%;
+
+}
