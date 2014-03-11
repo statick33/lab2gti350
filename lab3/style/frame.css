@@ -27,7 +27,7 @@ a:visited
 	background-repeat:repeat-x;
 }
 
-#button
+.button
 {
 	display:block;
 	background-image:url('images/button.png');
@@ -44,22 +44,22 @@ a:visited
 	line-height:60px;
 	color:#a69a75;
 }
-#button a
+.button a
 {
 	margin-top:15px;
 	color:#a69a75;
 }
-#button a:visited
+.button a:visited
 {
 	color:#a69a75;
 }
-#separator
+.separator
 {
 	height:60px;
 	width:19px;
 	float:left;
 }
-#button:hover
+.button:hover
 {
 	background-image:url('images/button3.png');
 	color:white;

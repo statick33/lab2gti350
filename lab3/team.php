@@ -3,8 +3,8 @@
 ?>
 	
 	<h3 style="margin-bottom:0px;float:left;">GTI 350 Dota Team</h3>
-	<div id="button" style="float:right !important;margin-top:10px;margin-left:0px;">Join team</div>
-	<div id="button" style="float:right !important;margin-top:10px;margin-left:0px;">Manage team</div>
+	<div class="button" style="float:right !important;margin-top:10px;margin-left:0px;">Join team</div>
+	<div class="button" style="float:right !important;margin-top:10px;margin-left:0px;">Manage team</div>
 
 	<table style="width:1024px;border-spacing:0 20px;">
 		<tr>
