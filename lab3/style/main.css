@@ -9,11 +9,14 @@
 	padding-right:20px;
 	padding-top:15px;
 	padding-bottom:15px;
+	color:white;
+	background-color:#212326;
+	margin-top:50px;
 }
 
 #content h3
 {
-	color:black;
+	color:white;
 }
 
 #content p
