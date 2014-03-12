@@ -8,6 +8,18 @@ body
 	background-repeat:no-repeat;
 	background-color:black;
 }
+input[type=text],input[type=password]
+{
+	background-color:#0d0f0e;
+	border: 2px solid #2e1a1e;
+	color:white;
+	padding:3px;
+	font-size:14px;
+}
+input[type=text]:focus,input[type=password]:focus
+{
+	border: 2px solid white;
+}
 
 a
 {
@@ -53,17 +65,45 @@ a:visited
 {
 	color:#a69a75;
 }
-.separator
-{
-	height:60px;
-	width:19px;
-	float:left;
-}
+
 .button:hover
 {
 	background-image:url('images/button3.png');
 	color:white;
 }
+.smallButton
+{
+	display:block;
+	background-image:url('images/button4.png');
+	background-repeat:no-repeat;
+	width:105px;
+	text-align:center;
+	height:30px;
+	font-family:arial;
+	font-weight:bold;
+	font-size:14px;
+	cursor:pointer;
+	float:left;
+	z-index:2;
+	line-height:30px;
+	color:#a69a75;
+}
+.smallButton a
+{
+	margin-top:10px;
+	color:#a69a75;
+}
+.smallButton a:visited
+{
+	color:#a69a75;
+}
+
+.smallButton:hover
+{
+	background-image:url('images/button5.png');
+	color:white;
+}
+
 #menu
 {
 	width: 100%;
@@ -132,6 +172,16 @@ a:visited
    margin:0;
    padding:0;
    position:relative;
-   right:50%;
+   right:58%;
+   height:30px;
 
+}
+#loginBox li input
+{
+	margin-top:2px;
+}
+#loginBox a
+{
+	display:block;
+	line-height:30px;
 }

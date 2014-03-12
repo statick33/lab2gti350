@@ -13,8 +13,8 @@
 		<ul>
 			<li><input type="text" value="Username"/></li>
 			<li><input type="password" value="Password"/></li>
-			<li><input type="button" value="login"/></li>
-			<li><a href="login.php" alt="sign up" >Sign up</a></li>
+			<li><div class="smallButton">Login</div></li>
+			<li><div class="smallButton">Sign up</div></li>
 		</ul>
 	</div>
 </div>
