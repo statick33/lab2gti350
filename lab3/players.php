@@ -1,5 +1,7 @@
 <?php
 	include('header.php'); 
+	include('data/Data.php');
+
 ?>
 <style type="text/css">
 .players {
@@ -18,23 +20,22 @@
 				<tr>
 					<th>Username</th>
 					<th>Team</th>
-					<th>Win</th>
-					<th>Lost</th>
 					<th></th>
 					
 				</tr>
 				<?php 
+					$data = new Data();
+					$player = $data->getPlayer();
 					$array = array("username" => array("Username1","Username2","Username3","Username4","Username5","Username6"),
 									"team" => array("Garma","Team1","Team1","Garma","Garma","FA"),
 									"win" => array("5","3","3","5","5","1"),
 									"lost" => array("2","4","4","2","4","6")
 					);
-				for($i =0; $i<count($array["username"]); $i++){
+				for($i =0; $i<count($player); $i++){
 					echo "<tr>
-						<td>".$array["username"][$i]."</td>
-						<td>".$array["team"][$i]."</td>
-						<td>".$array["win"][$i]."</td>
-						<td>".$array["lost"][$i]."</td>
+						<td>".$player[$i]["username"]."</td>
+						<td>".$player[$i]["team"]."</td>
+	
 						<td><a href='player.php' alt='' >view profile</a></td>
 						</tr>";
 				}
