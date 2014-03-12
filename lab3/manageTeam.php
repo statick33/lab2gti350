@@ -57,8 +57,8 @@
 				<table style="border:1px solid black; width:500px;height:344px;">
 					<tr><td>Name :</td><td><input type="text" value="GTI 350 Dota Team"/></td></tr>
 					<tr><td>Informations :</td><td><textarea></textarea></td></tr>
-					<tr><td>Picture :</td><td><div class="teamImage">Preview</div><div id="button">Upload</div></tr>
-					<tr><td></td><td><div id="button" style="float:right;">Save</div></td></tr>
+					<tr><td>Picture :</td><td><div class="teamImage">Preview</div><div class="button">Upload</div></tr>
+					<tr><td></td><td><div class="button" style="float:right;">Save</div></td></tr>
 				</table>
 			</td>
 			<td>Player list
@@ -76,9 +76,9 @@
 			<td>Player requests to join the team</td>
 			<table id="playerRequest" style="border:1px solid black; width:500px;height:344px;">
 				<tr><td>Username</td><td></td></tr>
-				<tr><td><a href="#">Player 6</a></td><td><div id="button">Accept</div></td><td><div id="button">Decline</div></td></tr>
-				<tr><td><a href="#">Player 7</a></td><td><div id="button">Accept</div></td><td><div id="button">Decline</div></td></tr>
-				<tr><td><a href="#">Player 8</a></td><td><div id="button">Accept</div></td><td><div id="button">Decline</div></td></tr>
+				<tr><td><a href="#">Player 6</a></td><td><div class="button">Accept</div></td><td><div class="button">Decline</div></td></tr>
+				<tr><td><a href="#">Player 7</a></td><td><div class="button">Accept</div></td><td><div class="button">Decline</div></td></tr>
+				<tr><td><a href="#">Player 8</a></td><td><div class="button">Accept</div></td><td><div class="button">Decline</div></td></tr>
 			</table>
 		</tr>
 	
