@@ -1,6 +1,5 @@
 <?php
 	include('header.php'); 
-	include('data/Data.php');
 
 ?>
 <style type="text/css">
@@ -8,7 +7,7 @@
 	padding-top:10px;
 }
 .players td{
-	padding: 0 50px;
+	padding: 0 30px;
 }
 </style>
 	<h3> Players </h3>
@@ -24,19 +23,15 @@
 					
 				</tr>
 				<?php 
+					// TODO FAIRE LES TRIS + le SEARCH BY
+
 					$data = new Data();
-					$player = $data->getPlayer();
-					$array = array("username" => array("Username1","Username2","Username3","Username4","Username5","Username6"),
-									"team" => array("Garma","Team1","Team1","Garma","Garma","FA"),
-									"win" => array("5","3","3","5","5","1"),
-									"lost" => array("2","4","4","2","4","6")
-					);
-				for($i =0; $i<count($player); $i++){
+					$players = $data->getAllPlayers();
+				for($i =0; $i<count($players); $i++){
 					echo "<tr>
-						<td>".$player[$i]["username"]."</td>
-						<td>".$player[$i]["team"]."</td>
-	
-						<td><a href='player.php' alt='' >view profile</a></td>
+						<td><a href='player.php?playerID=". $players[$i]["id"] ."' alt='".$players[$i]["username"]."' >".$players[$i]["username"]."</a></td>
+						<td><a href='team.php?teamID=".$players[$i]["team"]."' alt='".$players[$i]["name"]."'>".$players[$i]["name"]."</a></td>
+						<td><a href='player.php?playerID=". $players[$i]["id"] ."' alt='".$players[$i]["username"]."' >view profile</a></td>
 						</tr>";
 				}
 				

@@ -30,43 +30,35 @@ td{
 	margin:0 auto;
 	margin-bottom:15px;
 }
-
+<?php $playerID = $_GET['playerID'];
+				$data = new Data();
+				$player = $data->getPlayer($playerID);
+		?>
 </style>
-	<h3> Username1 </h3>
+	<h3> <?php echo $player[0]["username"] ?> </h3>
 	<div class="threecolumn">
 		<div class="image columnLeft">
 			Image profil
 		</div>
+		
 		<div class="columnMiddle">
 			<table>
 				<tbody>
 					<tr>
 						<td>Username</td>
-						<td>Username1</td>
+						<td><?php echo $player[0]["username"] ?></td>
 					</tr>
 					<tr>
 						<td>Email</td>
-						<td>asd@email.com</td>
+						<td><?php echo $player[0]["email"] ?></td>
 					</tr>
 					<tr>
 						<td>Country</td>
-						<td>Canada</td>
-					</tr>
-					<tr>
-						<td>Time zone</td>
-						<td>GMT -5</td>
+						<td><?php echo $player[0]["country"] ?></td>
 					</tr>
 					<tr>
 						<td>Current team</td>
-						<td><a href='team.php' alt='' >Team1</a></td>
-					</tr>
-					<tr>
-						<td>Win</td>
-						<td>13</td>
-					</tr>
-					<tr>
-						<td>Lost</td>
-						<td>2</td>
+						<td><a href='team.php' alt='' ><?php echo $player[0]["name"] ?></a></td>
 					</tr>
 				</tbody>
 			</table>
@@ -80,11 +72,19 @@ td{
 					<a href='match.php' alt='match' >18th april - FA vs Team1</a>
 				</p>
 			</div>
-			<div class="prevTeam">
-				Previous teams
-				<br />
-				<a href='team.php' alt='' >Garma</a>
-			</div>
+			<?php 
+			
+			if($player[0]['previousTeam'] != NULL){
+				$previousTeam = $data->getTeam($player[0]['previousTeam']);
+				echo "
+					<div class='prevTeam'>
+						Previous teams
+						<br />
+						<a href='team.php?teamID=".$player[0]['previousTeam']."' alt='' >".$previousTeam[0]["name"]."</a>
+					</div>
+				";
+				}
+			?>
 		</div>
 	</div>
 	<div style="clear:both;"></div>

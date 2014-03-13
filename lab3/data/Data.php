@@ -6,52 +6,163 @@ class Data{
 								  array("id" => 2,"username" => "Player","password" => "player"),
 								  array("id" => 3,"username" => "Capitain","password" => "admin"));
 								
-	private $aPlayer =   array(  array(	"id" => 1,"username" => "pieliedie","role" => "Capitaine", "email" => "pieliedie@email.com", "country" => "Canada", "team" => 1,"previousTeam" => ""),
-								  array(	"id" => 2,"username" => "EternaLEnVy","role" => "player", "email" => "EternaLEnVy@email.com", "country" => "France","team" =>1,"previousTeam" => ""),
-								  array(	"id" => 3,"username" => "SingSing","role" => "player", "email" => "SingSing@email.com", "country" => "Canada","team" =>1,"previousTeam" => ""),
-								  array(	"id" => 4,"username" => "bOne7","role" => "player", "email" => "bOne7@email.com", "country" => "France","team" =>1,"previousTeam" => ""),
-								  array(	"id" => 5,"username" => "Aui_2000","role" => "player", "email" => "Aui_2000@email.com", "country" => "Canada","team" =>1,"previousTeam" => ""),
-								  array(	"id" => 6,"username" => "Fear","role" => "player", "email" => "Fear@email.com","country" => "Chine","team" =>2,"previousTeam" => ""),
-								  array(	"id" => 7,"username" => "Arteezy","role" => "player", "email" => "Arteezy@email.com", "country" => "Canada","team" =>2,"previousTeam" => ""),
-								  array(	"id" => 8,"username" => "Universe","role" => "player", "email" => "Universe@email.com","country" => "Chine","team" =>2,"previousTeam" => ""),
-								  array(	"id" => 9,"username" => "zai","role" => "player", "email" => "zai@email.com", "country" => "France","team" =>2,"previousTeam" => ""),
-								  array(	"id" => 10,"username" => "ppd","role" => "Capitaine", "email" => "ppd@email.com", "country" => "Canada","team" =>2,"previousTeam" => ""),	
-								  array(	"id" => 11,"username" => "Waytosexy","role" => "player", "email" => "Waytosexy@email.com","country" => "Chine","team" =>3,"previousTeam" => ""),
-								  array(	"id" => 12,"username" => "FLUFFNSTUFF","role" => "player", "email" => "FLUFFNSTUFF@email.com", "country" => "Canada","team" =>3,"previousTeam" => ""),
-								  array(	"id" => 13,"username" => "TC","role" => "player", "email" => "TC@email.com","country" => "Chine","team" =>3,"previousTeam" => ""),
-								  array(	"id" => 14,"username" => "qojqva","role" => "player", "email" => "qojqva@email.com","country" => "Chine","team" =>3,"previousTeam" => ""),
-								  array(	"id" => 15,"username" => "patrondonoso","role" => "Capitaine", "email" => "patrondonoso@email.com", "country" => "Canada","team" =>3, "previousTeam" => 1),
-								  array(	"id" => 16,"username" => "RyuUboruZ","role" => "player", "email" => "RyuUboruZ@email.com", "country" => "Canada","team" =>4,"previousTeam" => ""),
-								  array(	"id" => 17,"username" => "Cak3z","role" => "player", "email" => "Cak3z@email.com", "country" => "France","team" =>4,"previousTeam" => ""),
-								  array(	"id" => 18,"username" => "ima_sheep(sux)","role" => "player", "email" => "sux@email.com", "country" => "France","team" =>4,"previousTeam" => ""),
-								  array(	"id" => 19,"username" => "jigglebilly","role" => "player", "email" => "jigglebilly@email.com","country" => "Chine","team" =>4,"previousTeam" => ""),
-								  array(	"id" => 20,"username" => "Pandaego","role" => "player", "email" => "Pandaego@email.com", "country" => "Canada","team" =>4,"previousTeam" => "")
-	);
+	/**
+	 * @const de la base de données
+	 */
+	const HOST = "localhost";
+	const USER = "root";
+	const PWD = "";
+	const BDD = "etsdotaleages";
 	
-	private $aTeam =   array(	  array("id" => 1, "name" => "Cloud 9", "win" => "5", "lost" =>"2", "membres" =>   array(1,2,3,4,5)),
-								  array("id" => 2, "name" => "Evil Geniuses", "win" => "1", "lost" =>"6", "membres" =>   array(6,7,8,9,10)),
-								  array("id" => 3, "name" => "Team Liquid", "win" => "2", "lost" =>"7", "membres" =>   array(16,17,18,19,20)),
-								  array("id" => 8, "name" => "Armata Gaming", "win" => "7", "lost" =>"0", "membres" =>   array(11,12,13,14,15)));
-								
-	private $aMatch =   array(   array("id" => 1, "winTeam" => 1, "lostTeam" =>2, "date" =>"1st april 2014"),
-								  array("id" => 1, "winTeam" => 1, "lostTeam" =>3, "date" =>"17th april 2014"),
-								  array("id" => 1, "winTeam" => 1, "lostTeam" =>2, "date" =>"1st march 2014"),
-								  array("id" => 1, "winTeam" => 1, "lostTeam" =>3, "date" =>"11th march 2014"),
-								  array("id" => 1, "winTeam" => 1, "lostTeam" =>2, "date" =>"6th march 2014"),
-								  array("id" => 1, "winTeam" => 3, "lostTeam" =>3, "date" =>"2nd april 2014"),
-								  array("id" => 1, "winTeam" => 3, "lostTeam" =>3, "date" =>"23th april 2014"),
-								  array("id" => 1, "winTeam" => 7, "lostTeam" =>3, "date" =>"28th march 2014"),
-								  array("id" => 1, "winTeam" => 7, "lostTeam" =>2, "date" =>"18th april 2014"),
-								  array("id" => 1, "winTeam" => 7, "lostTeam" =>2, "date" =>"10th april 2014"),
-								  array("id" => 1, "winTeam" => 7, "lostTeam" =>3, "date" =>"6th april 2014"),
-								  array("id" => 1, "winTeam" => 7, "lostTeam" =>3, "date" =>"10th march 2014"),
-								  array("id" => 1, "winTeam" => 7, "lostTeam" =>1, "date" =>"15th april 2014"),
-								 array("id" => 1, "winTeam" => 7, "lostTeam" =>1, "date" =>"13th march 2014"),
-								 array("id" => 1, "winTeam" => 2, "lostTeam" =>2, "date" =>"22th april 2014"));
-	private $aNews =  array();
+	/**
+	 * @const d'erreurs
+	 */
+	const MYSQL_BASE_SELECT_IMPOSSIBLE = "Erreur BDD : La sélection de la base de données est impossible.";
+	const MYSQL_BASE_CONNECT_IMPOSSIBLE ="Erreur BDD : La connexion à la base de données est impossible.";
+	const MYSQL_REQUETE_VIDE ="Erreur BDD : La requête à la base de données ne doit pas être une chaîne vide.";
+	const MYSQL_REQUETE_INVALIDE ="Erreur BDD : La requête à la base de données est invalide.";
+	const MYSQL_RESSOURCE_VIDE ="Erreur BDD : La ressource ne doit pas être une chaîne vide.";
+	
+	protected  $_instance;
 
-	public function getPlayer(){
-		return $this->aPlayer;
+	public final  function __construct() {
+		$this->_instance = $this->connecter(Data::HOST, Data::USER, Data::PWD);
+		
+		$this->selectionnerBdd(Data::BDD, $this->_instance);
+		
+	}
+	public final static function getConnexion() {
+		
+		if (!isset($this->_instance)) // Si aucune instance de Data
+			$this->_instance = new Data(); //Alors on en créer une
+		return $this->_instance; //Dans tous les cas on retourne une instance (soit la nouvelle soit l'existante)
+
+	}
+	
+	public final static  function selectionnerBdd($sBdd, $rId) {
+		$ret = @mysql_select_db($sBdd, $rId); //fonction de selection PHP
+		if (isset($ret) && empty($ret)) // Test si le code de retour de la fonction est existant et vide
+			throw new Exception(Data::MYSQL_BASE_SELECT_IMPOSSIBLE); //Gestion de l'erreur
+		return $ret; 
+	}
+	
+	public final  function connecter($sHost, $sUser, $sPwd) {
+		$ret = @mysql_connect($sHost, $sUser, $sPwd) or die(); //fonction de connexion a la base
+		if (isset($ret) && empty($ret))// Test si le code de retour de la fonction est existant et vide
+			throw new Exception(Data::MYSQL_BASE_CONNECT_IMPOSSIBLE);
+
+		return $ret; 
+	}
+	
+	public final  function executer($sRequete) {
+		if (!isset($this->_instance) || empty($this->_instance)) // Test si une connexion existe si elle n'existe pas
+			 $this->getConnexion(Data::HOST, Data::USER, Data::PWD, Data::BDD); //on essaye dans créer une.
+		
+		 if (!isset($sRequete) || empty($sRequete))
+		 	throw new Exception(Data::MYSQL_REQUETE_VIDE);
+		 else {			 
+			 	$resultat = mysql_query($sRequete);
+				if($resultat != false)
+					return $resultat;
+				else
+					throw new Exception(Data::MYSQL_REQUETE_INVALIDE);
+ 		}
+	 	
+		return false;			  
+	}
+	
+	public final  function select($sRequete) { 
+		return $this->executer($sRequete);
+	}
+	
+	public function recuperer($resultat,$result_type=MYSQL_BOTH){
+		if (!isset($resultat) && empty($resultat))
+			throw new Exception(Data::MYSQL_RESSOURCE_VIDE);
+		$aResultats = array();
+		$i=0;
+		while(($aLigne = mysql_fetch_array($resultat, $result_type)) != false){
+			$aResultats[$i] = $aLigne;
+			$i++;
+		}
+		if($i<=0)
+			return false;
+			
+		return $aResultats;
+	}
+	
+	public final  function getInstance() {
+		return $this->_instance;
+	}
+	
+	public function getPlayer($id){
+		
+		$sRequete = "
+		SELECT players.*, teams.* FROM players LEFT JOIN teams ON players.team = teams.id WHERE players.id = ".mysql_real_escape_string($id).";";
+		$ressource = $this->select($sRequete);
+		$aPlayer = $this->recuperer($ressource);
+		return $aPlayer;
+	}
+	public function getTeam($id){
+		$sRequete = "
+		SELECT * FROM teams WHERE id = ".mysql_real_escape_string($id).";";
+		$ressource = $this->select($sRequete);
+		$aPlayer = $this->recuperer($ressource);
+		return $aPlayer;
+	}
+	
+	public function getAllPlayers($a=NULL, $order = NULL){
+		$_order;
+		if($order == NULL){
+			$_order = array("name" => "username", "order" => "ASC");
+		}
+		$sRequete = "
+		SELECT players.*, teams.* FROM players LEFT JOIN teams ON players.team = teams.id WHERE ";
+		if($a != NULL){
+			for($i =0; $i<count($a); $i++){
+				if($i > 0){
+					$sRequete .= " AND ";
+				}
+				$sRequete .= $a[$i]['name']. "" . $a[$i]['condition']."". $a[$i]['value'];
+			}
+		}
+		else{
+			$sRequete .= "1";
+		}
+		$sRequete .= " ORDER BY ". $_order['name'] . " " . $_order['order'];
+
+		$sRequete .= ";";
+		
+		$ressource = $this->select($sRequete);
+		
+		$aPlayers = $this->recuperer($ressource);
+		return $aPlayers;
+	}
+	
+	public function getAllTeams($a=NULL, $order = NULL){
+		$_order;
+		if($order == NULL){
+			$_order = array("name" => "name", "order" => "ASC");
+		}
+		$sRequete = "
+		SELECT * FROM `teams` WHERE ";
+		if($a != NULL){
+			for($i =0; $i<count($a); $i++){
+				if($i > 0){
+					$sRequete .= " AND ";
+				}
+				$sRequete .= $a[$i]['name']. "" . $a[$i]['condition']."". $a[$i]['value'];
+			}
+		}
+		else{
+			$sRequete .= "1";
+		}
+		$sRequete .= " ORDER BY ". $_order['name'] . " " . $_order['order'];
+		$sRequete .= ";";
+		
+		$ressource = $this->select($sRequete);
+		
+		$aTeams = $this->recuperer($ressource);
+		return $aTeams;
 	}
 }
 ?>
