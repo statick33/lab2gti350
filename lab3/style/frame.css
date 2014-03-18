@@ -185,3 +185,175 @@ a:visited
 	display:block;
 	line-height:30px;
 }
+
+.contentBoxHeaderLeft
+{
+	width:33px;
+	height:33px;
+	background-image:url('images/boite-coingauche.png');
+	background-repeat:no-repeat;
+}
+.contentBoxHeaderMiddle
+{
+	height:33px;
+	background-image:url('images/boite-millieu.png');
+	background-repeat:repeat-x;
+}
+.contentBoxHeaderRight
+{
+	width:33px;
+	height:33px;
+	background-image:url('images/boite-coindroite.png');
+	background-repeat:no-repeat;
+}
+.contentBoxHeader table
+{
+	width:100%;
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+.contentBoxHeader td
+{
+	padding-left:0px;
+	padding-right:0px;
+}
+
+.contentBoxFooterLeft
+{
+	width:33px;
+	height:33px;
+	background-image:url('images/boite-coinbasgauche.png');
+	background-repeat:no-repeat;
+}
+.contentBoxFooterMiddle
+{
+	height:33px;
+	background-image:url('images/boite-millieubas.png');
+	background-repeat:repeat-x;
+}
+.contentBoxFooterRight
+{
+	width:33px;
+	height:33px;
+	background-image:url('images/boite-coinbasdroit.png');
+	background-repeat:no-repeat;
+}
+.contentBoxFooter table
+{
+	width:100%;
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+.contentBoxFooter td
+{
+	padding-left:0px;
+	padding-right:0px;
+}
+.contentBoxLeft
+{
+	width:33px;
+	background-image:url('images/boite-millieugauche.png');
+	background-repeat:repeat-y;
+}
+.contentBoxMiddle
+{
+	background-image:url('images/background-motif.png');;
+}
+.contentBoxRight
+{
+	width:33px;
+	background-image:url('images/boite-millieudroit.png');
+	background-repeat:repeat-y;
+}
+
+.mainContentBoxHeaderLeft
+{
+	width:14px;
+	height:14px;
+	background-image:url('images/content-coingauche.png');
+	background-repeat:no-repeat;
+}
+.mainContentBoxHeaderMiddle
+{
+	height:14px;
+	background-image:url('images/content-millieu.png');
+	background-repeat:repeat-x;
+}
+.mainContentBoxHeaderRight
+{
+	width:14px;
+	height:14px;
+	background-image:url('images/content-coindroite.png');
+	background-repeat:no-repeat;
+}
+.mainContentBoxFooter table
+{
+	width:100%;
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+.mainContentBoxFooterLeft
+{
+	width:14px;
+	height:14px;
+	background-image:url('images/content-coinbasgauche.png');
+	background-repeat:no-repeat;
+}
+.mainContentBoxMiddle
+{
+	background-image:url('images/background-motif.png');;
+}
+.mainContentBoxHeader td
+{
+	padding-left:0px;
+	padding-right:0px;
+}
+.mainContentBoxFooterLeft
+{
+	width:14px;
+	height:14px;
+	background-image:url('images/content-coinbasgauche.png');
+	background-repeat:no-repeat;
+}
+.mainContentBoxFooterMiddle
+{
+	height:14px;
+	background-image:url('images/content-millieubas.png');
+	background-repeat:repeat-x;
+}
+.mainContentBoxFooterRight
+{
+	width:14px;
+	height:14px;
+	background-image:url('images/content-coinbasdroite.png');
+	background-repeat:no-repeat;
+}
+.mainContentBoxHeader table
+{
+	width:100%;
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+.mainContentBoxFooter td
+{
+	padding-left:0px;
+	padding-right:0px;
+}
+.mainContentBoxLeft
+{
+	width:14px;
+	background-image:url('images/content-millieugauche.png');
+	background-repeat:repeat-y;
+}
+.mainContentBoxRight
+{
+	width:14px;
+	background-image:url('images/content-millieudroite.png');
+	background-repeat:repeat-y;
+}
+.shadow
+{
+	 box-shadow:1.5px 1.5px 1.5px 1.5px black;
+	 -webkit-box-shadow:1.5px 1.5px 1.5px 1.5px black;
+	 -moz-box-shadow:1.5px 1.5px 1.5px 1.5px black;
+}
