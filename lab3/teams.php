@@ -23,16 +23,15 @@
 					
 				</tr>
 				<?php 
-					$array = array("team" => array("Garma","Team1","Team2","AB","TF","CO"),
-									"win" => array("5","3","3","5","5","1"),
-									"lost" => array("2","4","4","2","4","6")
-					);
-				for($i =0; $i<count($array["team"]); $i++){
+				// TODO FAIRE LES TRIS
+					$data = new Data();
+					$teams = $data->getAllTeams();
+				for($i =0; $i<count($teams); $i++){
 					echo "<tr>
-						<td>".$array["team"][$i]."</td>
-						<td>".$array["win"][$i]."</td>
-						<td>".$array["lost"][$i]."</td>
-						<td><a href='team.php' alt='' >view team profile</a></td>
+						<td><a href='team.php?teamID=".$teams[$i]["id"]."' alt='".$teams[$i]["name"]."' >".$teams[$i]["name"]."</a></td>
+						<td>".$teams[$i]["win"]."</td>
+						<td>".$teams[$i]["lost"]."</td>
+						<td><a href='team.php?teamID=".$teams[$i]["id"]."' alt='".$teams[$i]["name"]."' >view team profile</a></td>
 						</tr>";
 				}
 				
