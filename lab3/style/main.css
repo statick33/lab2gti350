@@ -13,10 +13,16 @@
 	/*background-color:#212326;*/
 	margin-top:50px;
 }
+#content table
+{
+	color:#7d7d7e;
+}
 
 #content h3
 {
 	color:#cccccc;
+	margin-top:10px;
+	margin-bottom:10px;
 }
 
 #content p
@@ -24,7 +30,3 @@
 	color:#7d7d7e;
 }
 
-#matchList li
-{
-	margin-top:20px;
-}
