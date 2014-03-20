@@ -111,8 +111,8 @@ class Data{
 	}
 	
 	public function getAllPlayers($a=NULL, $order = NULL){
-		$_order;
-		if($order == NULL){
+		$_order = $order;
+		if($_order == NULL){
 			$_order = array("name" => "username", "order" => "ASC");
 		}
 		$sRequete = "
@@ -122,7 +122,7 @@ class Data{
 				if($i > 0){
 					$sRequete .= " AND ";
 				}
-				$sRequete .= $a[$i]['name']. "" . $a[$i]['condition']."". $a[$i]['value'];
+				$sRequete .= $a[$i]['name']. " " . $a[$i]['condition']." '". $a[$i]['value']."'";
 			}
 		}
 		else{
@@ -131,7 +131,7 @@ class Data{
 		$sRequete .= " ORDER BY ". $_order['name'] . " " . $_order['order'];
 
 		$sRequete .= ";";
-		
+
 		$ressource = $this->select($sRequete);
 		
 		$aPlayers = $this->recuperer($ressource);
@@ -139,8 +139,8 @@ class Data{
 	}
 	
 	public function getAllTeams($a=NULL, $order = NULL){
-		$_order;
-		if($order == NULL){
+		$_order = $order;
+		if($_order == NULL){
 			$_order = array("name" => "name", "order" => "ASC");
 		}
 		$sRequete = "
@@ -160,7 +160,6 @@ class Data{
 		$sRequete .= ";";
 		
 		$ressource = $this->select($sRequete);
-		
 		$aTeams = $this->recuperer($ressource);
 		return $aTeams;
 	}
