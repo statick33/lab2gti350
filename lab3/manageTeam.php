@@ -29,8 +29,8 @@
 		
 		table .teamImage
 		{
-			width:100px;
-			height:100px;
+			width:200px;
+			height:146px;
 		}
 		
 		table #button
@@ -52,6 +52,7 @@
 		#playerRequest td
 		{
 			vertical-align:middle;
+			height:10px;
 		}
 		
 		.twocolumn .columnLeft{
@@ -64,7 +65,20 @@
 		}
 		
 	</style>
-
+	<script>
+		function onFileUpload()
+		{
+			$("input[id='my_file']").click();
+		}
+		function deletePlayer(object)
+		{
+			var r = confirm("Are you sure you want to remove this player?");
+			if (r == true)
+			{
+				$(object).parent().parent().remove();
+			}
+		}
+	</script>
 		<?php
 			include('mainContentBoxHeader.php'); 
 		?>
@@ -79,8 +93,8 @@
 					<table style="height:344px;">
 						<tr><td>Name :</td><td><input type="text" value="GTI 350 Dota Team"/></td></tr>
 						<tr><td>Informations :</td><td><textarea></textarea></td></tr>
-						<tr><td>Picture :</td><td><img class="teamImage" src="style/images/team.png" /><div style="float:right;" class="smallButton">Upload</div></tr>
-						<tr><td></td><td><div class="smallButton" style="float:right;">Save</div></td></tr>
+						<tr><td>Picture :</td><td><img class="teamImage" src="style/images/team.png" /><div style="float:right;" onclick="onFileUpload()" class="smallButton">Upload</div><input type="file" id="my_file" style="display: none;" /></tr>
+						<tr><td></td><td><a href="success.php?message=2"><div class="smallButton" style="float:right;">Save</div></a></td></tr>
 					</table>
 			<?php
 				include('contentBoxFooter.php'); 
@@ -94,27 +108,62 @@
 				<h3>Player list</h3>
 					<table style="height:344px;">
 						<tr><td>Username</td><td></td></tr>
-						<tr><td><a href="#">Player 1</a></td><td><img src="style/images/x.gif" /></td></tr>
-						<tr><td><a href="#">Player 2</a></td><td><img src="style/images/x.gif" /></td></tr>
-						<tr><td><a href="#">Player 3</a></td><td><img src="style/images/x.gif" /></td></tr>
-						<tr><td><a href="#">Player 4</a></td><td><img src="style/images/x.gif" /></td></tr>
-						<tr><td><a href="#">Player 5</a></td><td><img src="style/images/x.gif" /></td></tr>
+						<tr><td><a href="#">Player 1</a></td><td><img onclick="deletePlayer(this)" src="style/images/x.gif" /></td></tr>
+						<tr><td><a href="#">Player 2</a></td><td><img onclick="deletePlayer(this)" src="style/images/x.gif" /></td></tr>
+						<tr><td><a href="#">Player 3</a></td><td><img onclick="deletePlayer(this)" src="style/images/x.gif" /></td></tr>
+						<tr><td><a href="#">Player 4</a></td><td><img onclick="deletePlayer(this)" src="style/images/x.gif" /></td></tr>
+						<tr><td><a href="#">Player 5</a></td><td><img onclick="deletePlayer(this)" src="style/images/x.gif" /></td></tr>
 					</table>
 			<?php
 				include('contentBoxFooter.php'); 
 			?>
 			</div>
 			
-			<div style="width:50%">
+			<div name="requests" style="width:50%">
 			<?php
 				include('contentBoxHeader.php'); 
 			?>
 				<h3>Player requests to join the team</h3>
+				<?php 
+				if(isset($_GET['message']))
+				{
+					if($_GET['message'] == 0)
+					{
+						echo'<p>Request accepted.</p>';
+					}
+					else if($_GET['message'] == 1)
+					{
+						echo'<p>Request denied.</p>';
+					}
+				}
+				?>
 				<table id="playerRequest" style="height:344px;">
 					<tr><td>Username</td><td></td></tr>
-					<tr><td><a href="#">Player 6</a></td><td><div class="smallButton">Accept</div></td><td><div class="smallButton">Decline</div></td></tr>
-					<tr><td><a href="#">Player 7</a></td><td><div class="smallButton">Accept</div></td><td><div class="smallButton">Decline</div></td></tr>
-					<tr><td><a href="#">Player 8</a></td><td><div class="smallButton">Accept</div></td><td><div class="smallButton">Decline</div></td></tr>
+					<?php
+						if(isset($_GET['id']))
+						{
+							if($_GET['id'] != 1)
+							{
+								echo'<tr><td><a href="#">Player 6</a></td><td><a href="manageTeam.php?message=0&id=1#requests"><div class="smallButton">Accept</div></a></td><td><a href="manageTeam.php?message=1&id=1#requests"><div class="smallButton">Decline</div></a></td></tr>';
+							}
+							if($_GET['id'] != 2)
+							{
+								echo'<tr><td><a href="#">Player 7</a></td><td><a href="manageTeam.php?message=0&id=2#requests"><div class="smallButton">Accept</div></a></td><td><a href="manageTeam.php?message=1&id=2#requests"><div class="smallButton">Decline</div></a></td></tr>';
+							}
+							if($_GET['id'] != 3)
+							{
+								echo'<tr><td><a href="#">Player 8</a></td><td><a href="manageTeam.php?message=0&id=3#requests"><div class="smallButton">Accept</div></a></td><td><a href="manageTeam.php?message=1&id=3#requests"><div class="smallButton">Decline</div></a></td></tr>';
+							}
+						}
+						else
+						{
+							echo'<tr><td><a href="#">Player 6</a></td><td><a href="manageTeam.php?message=0&id=1#requests"><div class="smallButton">Accept</div></a></td><td><a href="manageTeam.php?message=1&id=1#requests"><div class="smallButton">Decline</div></a></td></tr>';
+							echo'<tr><td><a href="#">Player 7</a></td><td><a href="manageTeam.php?message=0&id=2#requests"><div class="smallButton">Accept</div></a></td><td><a href="manageTeam.php?message=1&id=2#requests"><div class="smallButton">Decline</div></a></td></tr>';
+							echo'<tr><td><a href="#">Player 8</a></td><td><a href="manageTeam.php?message=0&id=3#requests"><div class="smallButton">Accept</div></a></td><td><a href="manageTeam.php?message=1&id=3#requests"><div class="smallButton">Decline</div></a></td></tr>';
+						}
+					?>
+					
+					
 				</table>
 			<?php
 				include('contentBoxFooter.php'); 
