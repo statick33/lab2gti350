@@ -10,6 +10,6 @@
 		<li id="frameMenu2"><img src="style/images/menu2.png" /></li>
 	</ul>
 	<div id="subMenu">
-		<a href="#">Logout</a>
+		<a href="unauth.php">Logout</a>
 	</div>
 </div>

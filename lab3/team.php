@@ -95,14 +95,25 @@
 		<div class="columnLeft">
 		<?php
 			include('contentBoxHeader.php'); 
+			$data = new Data();
+			$tri = array(array("name" => "teams.name", "condition" => "=", "value" =>"Armata Gaming"));
+			$players = $data->getAllPlayers($tri);
 		?>
 			<h3>Player roster :</h3>
 			<ul class="playerList" style="list-style-type: none; ">
-				<li style="margin-top:0px !important;"><a href="#">Player 1</a></li>
-				<li><a href="#">Player 2</a></li>
-				<li><a href="#">Player 3</a></li>
-				<li><a href="#">Player 4</a></li>
-				<li><a href="#">Player 5</a></li>
+				<?php
+				for($i =0; $i<count($players); $i++){
+					if($i ==0){ 
+						echo "
+						<li style='margin: 0px !important;'><a href='player.php?playerID=". $players[$i]["id"] ."' alt='".$players[$i]["username"]."' >".$players[$i]["username"]."</a></li>";
+					}
+					else{
+						echo "
+						<li><a href='player.php?playerID=". $players[$i]["id"] ."' alt='".$players[$i]["username"]."' >".$players[$i]["username"]."</a></li>";
+					}
+				}
+				?>
+
 			</ul>
 		<?php
 			include('contentBoxFooter.php'); 
