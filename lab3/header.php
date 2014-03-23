@@ -8,7 +8,7 @@
 <body>
 	<div id="header">
 		<?php 
-			session_start();
+		session_start();
 
 			if(isset($_SESSION['auth'])){
 				include('menu.php');
@@ -23,7 +23,7 @@
 			if(validate(form)){
 				$.ajax( "auth.php" )
 				  .done(function() {
-					window.location('http://localhost/lab2gti350/lab3/auth.php');
+					window.location.href ='http://localhost/lab3/lab2gti350/lab3/auth.php';
 				  });
 			}
 		}

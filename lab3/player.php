@@ -3,9 +3,6 @@
 ?>
 <style type="text/css">
 .image{
-	width:150px;
-	height:150px;
-	background-color:pink;
 	text-align:center;
 }
 .threecolumn .columnLeft{
@@ -22,11 +19,9 @@
 	float:right;
 }
 td{
-	width:250px;
 }
 .prevTeam, .prevMatch{
 	padding: 5px;
-	border:1px solid black;
 	margin:0 auto;
 	margin-bottom:15px;
 }
@@ -35,10 +30,14 @@ td{
 				$player = $data->getPlayer($playerID);
 		?>
 </style>
-	<h3> <?php echo $player[0]["username"] ?> </h3>
+	<?php
+		include('mainContentBoxHeader.php'); 
+		include('contentBoxHeader.php'); 
+	?>
+	<h2 style = "text-align:center;"> <?php echo $player[0]["username"] ?> </h2>
 	<div class="threecolumn">
 		<div class="image columnLeft">
-			Image profil
+			<img src="style/images/person.png" width="200" height="200" alt="person" />
 		</div>
 		
 		<div class="columnMiddle">
@@ -64,9 +63,9 @@ td{
 			</table>
 		</div>
 		<div class="columnRight">
+		<?php 		include('contentBoxHeader.php');  ?>
 			<div class="prevMatch">
-				<p> Previous Match
-					<br />
+				<p><h3> Previous Match</h3>
 					<a href='match.php' alt='match' >1st april - Garma vs. CO</a>
 					<br />
 					<a href='match.php' alt='match' >18th april - FA vs Team1</a>
@@ -78,16 +77,23 @@ td{
 				$previousTeam = $data->getTeam($player[0]['previousTeam']);
 				echo "
 					<div class='prevTeam'>
-						Previous teams
-						<br />
+						<h3>Previous teams</h3>
 						<a href='team.php?teamID=".$player[0]['previousTeam']."' alt='' >".$previousTeam[0]["name"]."</a>
 					</div>
 				";
 				}
+				include('contentBoxFooter.php'); 
+
 			?>
+			
 		</div>
 	</div>
 	<div style="clear:both;"></div>
+	<?php
+		include('contentBoxFooter.php'); 
+		include('mainContentBoxFooter.php'); 
+	?>
+
 <?php
 	include('footer.php'); 
 ?>

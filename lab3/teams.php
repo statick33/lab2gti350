@@ -47,7 +47,8 @@
 		include('contentBoxHeader.php'); 
 	?>
 	<h3> Teams </h3>
-	<div>
+	<div style="text-align:right;margin-top:-35px;"> <a href="Standing.php"> View Competition Tree </a></div>
+	<div style="margin-top:15px;">
 		<label for="txt_name">Search by : Name</label>
 		<input type="text" name="txt_name" value="" />
 		<table class="teams">

@@ -6,7 +6,7 @@
 	margin:0 auto;
 }
 .challengeTree td{
-	width:75px;
+	width:65px;
 	height:50px;
 	margin:0px;
 	padding:0px;
@@ -22,17 +22,22 @@
 	color:red;
 }
 .twocolumn .columnLeft{
-	width:74%;
+	width:79%;
 	float:left;
-	border-right:1px solid black;
 }
 .twocolumn .columnRight{
-	width:24%;
+	width:19%;
 	float:right;
 }
 </style>
+<?php
+		include('mainContentBoxHeader.php'); 
+	?>	
 <div class="news twocolumn" >
 	<div class="challenge columnLeft">
+	<?php
+		include('contentBoxHeader.php'); 
+	?>
 	<h3> Challenger Tree </h3>
 		<table class="challengeTree">
 			<tbody>
@@ -89,11 +94,17 @@
 				
 			</tbody>
 		</table>
+	<?php
+		include('contentBoxFooter.php'); 
+	?>
 	</div>
 	<div class="columnRight">
+	<?php
+		include('contentBoxHeader.php'); 
+	?>
 		<h3> Ranking</h3>
 		<p>
-		1. Garma
+		1. Armata Gaming
 		<br />
 		2. AB
 		<br />
@@ -103,7 +114,11 @@
 		<br />
 		</p>
 	</div>
+	<?php
+		include('contentBoxFooter.php'); 
+	?>
 </div>
 <?php
+	include('mainContentBoxFooter.php'); 
 	include('footer.php'); 
 ?>

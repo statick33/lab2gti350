@@ -21,14 +21,10 @@
 			<?php
 				include('contentBoxHeader.php'); 
 			?>
-				<h3>News 1</h3>
-				<p> Welcome on our homepage</p>
-				<h3>News 2</h3>
-				<p> This section containt all news from the website. </p>
-				<h3>News 3</h3>
-				<p> This section containt all news from the website. </p>
-				<h3>News 4</h3>
-				<p> This section containt all news from the website. </p>
+				<h3>From DotA to The International 1: The Long Road</h3>
+				<p>With the unconfirmed news about The International 4 looming ahead in July, it is time to review its past. Having our humble beginnings in the Dota 2 scene nearly four years ago, it is amazing how far the game has developed, as well as the community since then. This article will be split into two parts: The development of Dota 2 and The International 2011, with the former being the main focus.</p>
+				<h3>Draft Analysis - Monster Invitational Final Game 5</h3>
+				<p>The current meta is one of the most flexible we have ever witnessed in DotA2, with every hero being strong with proper execution and a suitable line-up. During the grand finals of Monster Energy Invitational, we were able to witness the true beauty of this fact, with Evil Geniuses using a very innovative strategy to take down Cloud9. </p>
 			<?php
 				include('contentBoxFooter.php'); 
 			?>
