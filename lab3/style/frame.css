@@ -59,7 +59,8 @@ a:visited
 }
 .button a
 {
-	margin-top:15px;
+	padding-top:15px;
+	padding-bottom:15px;
 	color:#a69a75;
 }
 .button a:visited

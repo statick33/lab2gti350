@@ -104,15 +104,25 @@
 			<div class="columnRight">
 			<?php
 				include('contentBoxHeader.php'); 
+				$data = new Data();
+				$tri = array(array("name" => "teams.name", "condition" => "=", "value" =>"Armata Gaming"));
+				$players = $data->getAllPlayers($tri);
 			?>
 				<h3>Player list</h3>
 					<table style="height:344px;">
 						<tr><td>Username</td><td></td></tr>
-						<tr><td><a href="#">Player 1</a></td><td><img onclick="deletePlayer(this)" src="style/images/x.gif" /></td></tr>
-						<tr><td><a href="#">Player 2</a></td><td><img onclick="deletePlayer(this)" src="style/images/x.gif" /></td></tr>
-						<tr><td><a href="#">Player 3</a></td><td><img onclick="deletePlayer(this)" src="style/images/x.gif" /></td></tr>
-						<tr><td><a href="#">Player 4</a></td><td><img onclick="deletePlayer(this)" src="style/images/x.gif" /></td></tr>
-						<tr><td><a href="#">Player 5</a></td><td><img onclick="deletePlayer(this)" src="style/images/x.gif" /></td></tr>
+				<?php
+				for($i =0; $i<count($players); $i++){
+					if($i ==0){ 
+						echo "
+						<tr><td><a href='player.php?playerID=". $players[$i]["idPlayer"] ."' alt='".$players[$i]["username"]."' >".$players[$i]["username"]."</a></td><td><img onclick='deletePlayer(this)' src='style/images/x.gif' /></td></tr>";
+					}
+					else{
+						echo "
+						<tr><td><a href='player.php?playerID=". $players[$i]["idPlayer"] ."' alt='".$players[$i]["username"]."' >".$players[$i]["username"]."</a></td><td><img onclick='deletePlayer(this)' src='style/images/x.gif' /></td></tr>";
+					}
+				}
+				?>
 					</table>
 			<?php
 				include('contentBoxFooter.php'); 

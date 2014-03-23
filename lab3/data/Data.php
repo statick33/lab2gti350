@@ -97,7 +97,7 @@ class Data{
 	public function getPlayer($id){
 		
 		$sRequete = "
-		SELECT players.*, teams.* FROM players LEFT JOIN teams ON players.team = teams.id WHERE players.id = ".mysql_real_escape_string($id).";";
+		SELECT players.*, teams.* FROM players LEFT JOIN teams ON players.team = teams.id WHERE players.idPlayer = ".mysql_real_escape_string($id).";";
 		$ressource = $this->select($sRequete);
 		$aPlayer = $this->recuperer($ressource);
 		return $aPlayer;
@@ -131,9 +131,7 @@ class Data{
 		$sRequete .= " ORDER BY ". $_order['name'] . " " . $_order['order'];
 
 		$sRequete .= ";";
-
 		$ressource = $this->select($sRequete);
-		
 		$aPlayers = $this->recuperer($ressource);
 		return $aPlayers;
 	}
@@ -150,7 +148,7 @@ class Data{
 				if($i > 0){
 					$sRequete .= " AND ";
 				}
-				$sRequete .= $a[$i]['name']. "" . $a[$i]['condition']."". $a[$i]['value'];
+				$sRequete .= $a[$i]['name']. "" . $a[$i]['condition']."'". $a[$i]['value'] ."'";
 			}
 		}
 		else{
@@ -158,7 +156,7 @@ class Data{
 		}
 		$sRequete .= " ORDER BY ". $_order['name'] . " " . $_order['order'];
 		$sRequete .= ";";
-		
+
 		$ressource = $this->select($sRequete);
 		$aTeams = $this->recuperer($ressource);
 		return $aTeams;

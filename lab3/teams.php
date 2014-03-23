@@ -10,35 +10,55 @@
 	padding: 0 50px;
 	text-align:center;
 }
+.teams td a{
+	text-decoration:none;
+
+}
+.teams th{
+	font-size:20;
+	text-decoration:underline;
+}
 </style>
 
 <script type="text/javascript">
-	var tri = "<?php echo $_GET['tri'] . '' . substr($_GET['by'],0,1); ?>";
+	var tri ="";
+	var search ="";
+	<?php if(isset($_GET['tri']) && isset($_GET['by'])): ?>
+		var tri = "<?php echo $_GET['tri']. "" . substr($_GET['by'],0,1); ?>";
+	<?php endif; ?>
+	<?php if(isset($_GET['search'])) : ?>
+		var search = "search=<?php echo $_GET['search'] ?>";
+	<?php endif; ?>
 	function triWin(){
 		if(tri == "winA"){
-			window.location.href = 'http://localhost/lab2gti350/lab3/teams.php?tri=win&by=DESC';
+			window.location.href = 'http://localhost/lab2gti350/lab3/teams.php?tri=win&by=DESC&'+ search;
 
 		}
 		else{
-			window.location.href = 'http://localhost/lab2gti350/lab3/teams.php?tri=win&by=ASC';
+			window.location.href = 'http://localhost/lab2gti350/lab3/teams.php?tri=win&by=ASC&'+ search;
 		}
 	}
 	function triLost(){
 		if(tri == "lostA"){
-			window.location.href = 'http://localhost/lab2gti350/lab3/teams.php?tri=lost&by=DESC';
+			window.location.href = 'http://localhost/lab2gti350/lab3/teams.php?tri=lost&by=DESC&'+ search;
 
 		}
 		else{
-			window.location.href = 'http://localhost/lab2gti350/lab3/teams.php?tri=lost&by=ASC';
+			window.location.href = 'http://localhost/lab2gti350/lab3/teams.php?tri=lost&by=ASC&'+ search;
 		}
 	}
 	function triTeam(){
 		if(tri == "nameA"){
-			window.location.href = 'http://localhost/lab2gti350/lab3/teams.php?tri=name&by=DESC';
+			window.location.href = 'http://localhost/lab2gti350/lab3/teams.php?tri=name&by=DESC&'+ search;
 
 		}
 		else{
-			window.location.href = 'http://localhost/lab2gti350/lab3/teams.php?tri=name&by=ASC';
+			window.location.href = 'http://localhost/lab2gti350/lab3/teams.php?tri=name&by=ASC&'+ search;
+		}
+	}
+	function searchByName(name){
+		if(name != ""){
+			window.location.href = 'http://localhost/lab2gti350/lab3/teams.php?search='+ name;
 		}
 	}
 </script>
@@ -49,8 +69,11 @@
 	<h3> Teams </h3>
 	<div style="text-align:right;margin-top:-35px;"> <a href="Standing.php"> View Competition Tree </a></div>
 	<div style="margin-top:15px;">
-		<label for="txt_name">Search by : Name</label>
-		<input type="text" name="txt_name" value="" />
+		<div style="float:left">
+			<label for="txt_name">Search by Name :</label>
+			<input type="text" name="txt_name" id="txt_name" value="" />
+		</div>
+		<div style="float:left;" onclick="searchByName(document.getElementById('txt_name').value)" class="smallButton">Search</div>
 		<table class="teams">
 			<tbody>
 				<tr>
@@ -61,15 +84,16 @@
 					
 				</tr>
 				<?php 
-				// TODO FAIRE LES TRIS
 					$data = new Data();
+					$order = null;
+					$search = null;
 					if(isset($_GET['tri']) && isset($_GET['by'])){
 						$order = array("name" => $_GET['tri'], "order"=> $_GET['by']);
-						$teams = $data->getAllTeams(null,$order);
 					}
-					else{
-						$teams = $data->getAllTeams();
+					if(isset($_GET['search'])){
+						$search = array(array("name" => "name", "condition" => "=", "value" => $_GET['search']));
 					}				
+					$teams = $data->getAllTeams($search, $order);
 				for($i =0; $i<count($teams); $i++){
 					echo "<tr>
 						<td><a href='team.php?teamID=".$teams[$i]["id"]."' alt='".$teams[$i]["name"]."' >".$teams[$i]["name"]."</a></td>

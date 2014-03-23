@@ -1,7 +1,6 @@
 <?php
 	include('header.php'); 
-	$_GET['tri'] = "username";
-	$_GET['by'] = "ASC";
+	
 	
 ?>
 <style type="text/css">
@@ -12,25 +11,44 @@
 	padding: 0 30px;
 	text-align:center;
 }
+.players td a{
+	text-decoration:none;
+
+}
+.players th{
+	font-size:20;
+	text-decoration:underline;
+}
 </style>
 <script type="text/javascript">
-	var tri = "<?php echo $_GET['tri']. "" . substr($_GET['by'],0,1); ?>";
-	
+	var tri = "";
+	var search ="";
+	<?php if(isset($_GET['tri']) && isset($_GET['by'])): ?>
+		var tri = "<?php echo $_GET['tri']. "" . substr($_GET['by'],0,1); ?>";
+	<?php endif; ?>
+	<?php if(isset($_GET['search'])) : ?>
+		var search = "search=<?php echo $_GET['search'] ?>";
+	<?php endif; ?>
 	function triUsername(){
 		if(tri == "usernameA"){
-			window.location.href = 'http://localhost/lab2gti350/lab3/players.php?tri=username&by=DESC';
+			window.location.href = 'http://localhost/lab2gti350/lab3/players.php?tri=username&by=DESC&'+ search;
 		}
 		else{
-			window.location.href = 'http://localhost/lab2gti350/lab3/players.php?tri=username&by=ASC';
+			window.location.href = 'http://localhost/lab2gti350/lab3/players.php?tri=username&by=ASC&'+ search;
 		}
 	}
 	function triTeam(){
 		if(tri == "teamA"){
-			window.location.href = 'http://localhost/lab2gti350/lab3/players.php?tri=team&by=DESC';
+			window.location.href = 'http://localhost/lab2gti350/lab3/players.php?tri=team&by=DESC&'+ search;
 
 		}
 		else{
-			window.location.href = 'http://localhost/lab2gti350/lab3/players.php?tri=team&by=ASC';
+			window.location.href = 'http://localhost/lab2gti350/lab3/players.php?tri=team&by=ASC&'+ search;
+		}
+	}
+	function searchByUser(name){
+		if(name != ""){
+			window.location.href = 'http://localhost/lab2gti350/lab3/players.php?search='+ name;
 		}
 	}
 </script>
@@ -40,8 +58,11 @@
 	?>
 	<h3> Players </h3>
 	<div>
-		<label for="txt_username">Search by : Username</label>
-		<input type="text" name="txt_username" value="" />
+		<div style = "float:left;">
+			<label for="txt_username">Search by Username :</label>
+			<input type="text" name="txt_username" id="txt_username" value="" />
+		</div>
+		<div style="float:left;" onclick="searchByUser(document.getElementById('txt_username').value)" class="smallButton">Search</div>
 		<table class="players">
 			<tbody>
 				<tr>
@@ -51,21 +72,23 @@
 					
 				</tr>
 				<?php 
-					// TODO FAIRE LES TRIS + le SEARCH BY
 
 					$data = new Data();
+					$order = null;
+					$search = null;
 					if(isset($_GET['tri']) && isset($_GET['by'])){
 						$order = array("name" => $_GET['tri'], "order"=> $_GET['by']);
-						$players = $data->getAllPlayers(null,$order);
 					}
-					else{
-						$players = $data->getAllPlayers();
-					}
+					if(isset($_GET['search'])){
+						$search = array(array("name" => "username", "condition" => "=", "value" => $_GET['search']));
+					}				
+					$players = $data->getAllPlayers($search,$order);
+					
 				for($i =0; $i<count($players); $i++){
 					echo "<tr>
-						<td><a href='player.php?playerID=". $players[$i]["id"] ."' alt='".$players[$i]["username"]."' >".$players[$i]["username"]."</a></td>
+						<td><a href='player.php?playerID=". $players[$i]["idPlayer"] ."' alt='".$players[$i]["username"]."' >".$players[$i]["username"]."</a></td>
 						<td><a href='team.php?teamID=".$players[$i]["team"]."' alt='".$players[$i]["name"]."'>".$players[$i]["name"]."</a></td>
-						<td><a href='player.php?playerID=". $players[$i]["id"] ."' alt='".$players[$i]["username"]."' >view profile</a></td>
+						<td><a href='player.php?playerID=". $players[$i]["idPlayer"] ."' alt='".$players[$i]["username"]."' >view profile</a></td>
 						</tr>";
 				}
 				

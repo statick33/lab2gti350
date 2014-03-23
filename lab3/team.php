@@ -105,11 +105,11 @@
 				for($i =0; $i<count($players); $i++){
 					if($i ==0){ 
 						echo "
-						<li style='margin: 0px !important;'><a href='player.php?playerID=". $players[$i]["id"] ."' alt='".$players[$i]["username"]."' >".$players[$i]["username"]."</a></li>";
+						<li style='margin: 0px !important;'><a href='player.php?playerID=". $players[$i]["idPlayer"] ."' alt='".$players[$i]["username"]."' >".$players[$i]["username"]."</a></li>";
 					}
 					else{
 						echo "
-						<li><a href='player.php?playerID=". $players[$i]["id"] ."' alt='".$players[$i]["username"]."' >".$players[$i]["username"]."</a></li>";
+						<li><a href='player.php?playerID=". $players[$i]["idPlayer"] ."' alt='".$players[$i]["username"]."' >".$players[$i]["username"]."</a></li>";
 					}
 				}
 				?>
@@ -125,9 +125,9 @@
 		?>
 			<h3>Upcoming Matchs :</h3>
 			<ul class="matchList" style="list-style-type: none; ">
-				<li class="notplayed" style="margin-top:0px !important;"><a href="#">Match 6 </a><br /><span style="color:#cccccc">Best of three</span> <br /><a href="#"> Against Team R</a></li>
-				<li class="notplayed"><a href="#">Match 7 </a><br /><span style="color:#cccccc">Best of three</span> <br /><a href="#"> Against Team T</a></li>
-				<li class="notplayed"><a href="#">Match 8 </a><br /><span style="color:#cccccc">Best of three</span> <br /><a href="#"> Against Team W</a></li>
+				<li class="notplayed" style="margin-top:0px !important;"><a href="match.php">Match 6 </a><br /><span style="color:#cccccc">Best of three</span> <br /><a href="team.php"> Against Team R</a></li>
+				<li class="notplayed"><a href="match.php">Match 7 </a><br /><span style="color:#cccccc">Best of three</span> <br /><a href="team.php"> Against Team T</a></li>
+				<li class="notplayed"><a href="match.php">Match 8 </a><br /><span style="color:#cccccc">Best of three</span> <br /><a href="team.php"> Against Team W</a></li>
 			</ul>
 		<?php
 			include('contentBoxFooter.php'); 
@@ -139,9 +139,9 @@
 		?>
 			<h3>Lastest matchs :</h3>
 			<ul class="matchList" style="list-style-type: none; ">
-				<li class="win" style="margin-top:0px !important;"><a href="#">Match 4</a><br /><span style="color:#cccccc">2-0</span> <br /> <a href="#">Against Team G</a></li>
-				<li class="lost"><a href="#">Match 3</a><br /><span style="color:#cccccc">1-2</span> <br /> <a href="#">Against Team F</a></li>
-				<li class="lost"><a href="#">Match 2</a><br /><span style="color:#cccccc">0-2</span> <br /> <a href="#">Against Team E</a></li>
+				<li class="win" style="margin-top:0px !important;"><a href="match.php">Match 4</a><br /><span style="color:#cccccc">2-0</span> <br /> <a href="team.php">Against Team G</a></li>
+				<li class="lost"><a href="match.php">Match 3</a><br /><span style="color:#cccccc">1-2</span> <br /> <a href="team.php">Against Team F</a></li>
+				<li class="lost"><a href="match.php">Match 2</a><br /><span style="color:#cccccc">0-2</span> <br /> <a href="team.php">Against Team E</a></li>
 			</ul>	
 		<?php
 			include('contentBoxFooter.php'); 
