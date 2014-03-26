@@ -31,24 +31,24 @@
 	<?php endif; ?>
 	function triUsername(){
 		if(tri == "usernameA"){
-			window.location.href = 'http://localhost/lab2gti350/lab3/players.php?tri=username&by=DESC&'+ search;
+			window.location.href = '<?php echo  $_SERVER['SERVER_NAME']."". $_SERVER['PHP_SELF'] ;?>?tri=username&by=DESC&'+ search;
 		}
 		else{
-			window.location.href = 'http://localhost/lab2gti350/lab3/players.php?tri=username&by=ASC&'+ search;
+			window.location.href = '<?php echo  $_SERVER['SERVER_NAME']."". $_SERVER['PHP_SELF'] ;?>?tri=username&by=ASC&'+ search;
 		}
 	}
 	function triTeam(){
 		if(tri == "teamA"){
-			window.location.href = 'http://localhost/lab2gti350/lab3/players.php?tri=team&by=DESC&'+ search;
+			window.location.href = '<?php echo  $_SERVER['SERVER_NAME']."". $_SERVER['PHP_SELF'] ;?>?tri=team&by=DESC&'+ search;
 
 		}
 		else{
-			window.location.href = 'http://localhost/lab2gti350/lab3/players.php?tri=team&by=ASC&'+ search;
+			window.location.href = '<?php echo  $_SERVER['SERVER_NAME']."". $_SERVER['PHP_SELF'] ;?>?tri=team&by=ASC&'+ search;
 		}
 	}
 	function searchByUser(name){
 		if(name != ""){
-			window.location.href = 'http://localhost/lab2gti350/lab3/players.php?search='+ name;
+			window.location.href = '<?php echo  $_SERVER['SERVER_NAME']."". $_SERVER['PHP_SELF'] ;?>?search='+ name;
 		}
 	}
 </script>
