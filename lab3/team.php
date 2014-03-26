@@ -1,4 +1,4 @@
-<?php
+ï»¿<?php
 	include('header.php'); 
 ?>
 
@@ -78,9 +78,9 @@
 	?>
 		<div class="columnLeft">
 			<h3>Informations :</h3>
-				<p>Armata Gaming est une organisation canadienne de jeux en ligne multijoueurs qui vise l'excellence depuis 2008, dans une ambiance qui favorise le développement des joueurs. Fidèles à nos origines, nous sommes aujourd'hui présents sur la plupart des titres populaires qui offrent du contenu PvP.
+				<p>Armata Gaming est une organisation canadienne de jeux en ligne multijoueurs qui vise l'excellence depuis 2008, dans une ambiance qui favorise le dÃ©veloppement des joueurs. FidÃ¨les Ã  nos origines, nous sommes aujourd'hui prÃ©sents sur la plupart des titres populaires qui offrent du contenu PvP.
 
-				L'organisation est structurée en divisions, l'équivalent d'une équipe ou d'une guilde dans un jeu. Chaque division est dirigée par un manager, un capitaine et ses adjoints. Bien que les règles peuvent différer d'une division à une autre, tous les membres du staff essaient de véhiculer les mêmes valeurs fondamentales sur lesquelles a été bâtie notre communauté.</p>
+				L'organisation est structurÃ©e en divisions, l'Ã©quivalent d'une Ã©quipe ou d'une guilde dans un jeu. Chaque division est dirigÃ©e par un manager, un capitaine et ses adjoints. Bien que les rÃ¨gles peuvent diffÃ©rer d'une division Ã  une autre, tous les membres du staff essaient de vÃ©hiculer les mÃªmes valeurs fondamentales sur lesquelles a Ã©tÃ© bÃ¢tie notre communautÃ©.</p>
 		</div>
 		<div class="columnRight" style="text-align:center;">
 			<img src="style/images/team.png" />

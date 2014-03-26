@@ -34,23 +34,27 @@
 }
 .firstChallenger, .secondChallenger, .thirdChallenger{
 	margin-top:35px;
-	width:144px;
+	width:220px;
 	float:left;
 }
 .firstChallenger div{
 	clear:both;
-	padding: 15px 0px 15px 32px;
+	width:144px;
+	padding: 15px 0px 15px 0px;
+	margin-left:20px;
 	text-align:center;
 }
 .secondChallenger div{
-	padding: 65px 0px 15px 135px;
+	padding: 65px 0px 15px 60px;
 	width:144px;
+	margin-right:32px;
 	text-align:center;
 	float:left;
 }
 .thirdChallenger div{
-	padding: 165px 0px 84px 250px;
+	padding: 165px 0px 84px 100px;
 	width:144px;
+	margin-right:32px;
 	text-align:center;
 	float:left;
 	

@@ -68,7 +68,6 @@
 		include('mainContentBoxHeader.php'); 
 		include('contentBoxHeader.php'); 
 	?>
-	<?php echo  $_SERVER['SERVER_NAME']."". $_SERVER['PHP_SELF'] ;?>
 	<h3> Teams </h3>
 	<div style="text-align:right;margin-top:-35px;"> <a href="Standing.php"> View Competition Tree </a></div>
 	<div style="margin-top:15px;">
