@@ -33,34 +33,34 @@
 
 	function triWin(){
 		if(tri == "winA"){
-			window.location.href = '<?php echo  $_SERVER['SERVER_NAME']."". $_SERVER['PHP_SELF'] ;?>?tri=win&by=DESC&'+ search;
+			window.location.href = 'http://<?php echo  $_SERVER['SERVER_NAME']."". $_SERVER['PHP_SELF'] ;?>?tri=win&by=DESC&'+ search;
 
 		}
 		else{
-			window.location.href = '<?php echo  $_SERVER['SERVER_NAME']."". $_SERVER['PHP_SELF'] ;?>?tri=win&by=ASC&'+ search;
+			window.location.href = 'http://<?php echo  $_SERVER['SERVER_NAME']."". $_SERVER['PHP_SELF'] ;?>?tri=win&by=ASC&'+ search;
 		}
 	}
 	function triLost(){
 		if(tri == "lostA"){
-			window.location.href = '<?php echo  $_SERVER['SERVER_NAME']."". $_SERVER['PHP_SELF'] ;?>?tri=lost&by=DESC&'+ search;
+			window.location.href = 'http://<?php echo  $_SERVER['SERVER_NAME']."". $_SERVER['PHP_SELF'] ;?>?tri=lost&by=DESC&'+ search;
 
 		}
 		else{
-			window.location.href = '<?php echo  $_SERVER['SERVER_NAME']."". $_SERVER['PHP_SELF'] ;?>?tri=lost&by=ASC&'+ search;
+			window.location.href = 'http://<?php echo  $_SERVER['SERVER_NAME']."". $_SERVER['PHP_SELF'] ;?>?tri=lost&by=ASC&'+ search;
 		}
 	}
 	function triTeam(){
 		if(tri == "nameA"){
-			window.location.href = '<?php echo  $_SERVER['SERVER_NAME']."". $_SERVER['PHP_SELF'] ;?>?tri=name&by=DESC&'+ search;
+			window.location.href = 'http://<?php echo  $_SERVER['SERVER_NAME']."". $_SERVER['PHP_SELF'] ;?>?tri=name&by=DESC&'+ search;
 
 		}
 		else{
-			window.location.href = '<?php echo  $_SERVER['SERVER_NAME']."". $_SERVER['PHP_SELF'] ;?>?tri=name&by=ASC&'+ search;
+			window.location.href = 'http://<?php echo  $_SERVER['SERVER_NAME']."". $_SERVER['PHP_SELF'] ;?>?tri=name&by=ASC&'+ search;
 		}
 	}
 	function searchByName(name){
 		if(name != ""){
-			window.location.href = '<?php echo  $_SERVER['SERVER_NAME']."". $_SERVER['PHP_SELF'] ;?>?search='+ name;
+			window.location.href = 'http://<?php echo  $_SERVER['SERVER_NAME']."". $_SERVER['PHP_SELF'] ;?>?search='+ name;
 		}
 	}
 </script>
