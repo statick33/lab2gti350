@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 3.4.10.1
+-- version 4.0.4
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le : Jeu 13 Mars 2014 à 20:46
--- Version du serveur: 5.5.20
+-- Généré le: Mer 26 Mars 2014 à 22:32
+-- Version du serveur: 5.5.20-log
 -- Version de PHP: 5.3.10
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -19,6 +19,8 @@ SET time_zone = "+00:00";
 --
 -- Base de données: `etsdotaleages`
 --
+CREATE DATABASE IF NOT EXISTS `etsdotaleages` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `etsdotaleages`;
 
 -- --------------------------------------------------------
 
@@ -62,21 +64,21 @@ INSERT INTO `matchs` (`id`, `winTeam`, `lostTeam`, `date`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `players` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `idPlayer` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(100) NOT NULL,
   `role` varchar(100) NOT NULL,
   `email` varchar(250) NOT NULL,
   `country` varchar(100) NOT NULL,
   `team` int(11) NOT NULL,
   `previousTeam` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`idPlayer`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf16 AUTO_INCREMENT=21 ;
 
 --
 -- Contenu de la table `players`
 --
 
-INSERT INTO `players` (`id`, `username`, `role`, `email`, `country`, `team`, `previousTeam`) VALUES
+INSERT INTO `players` (`idPlayer`, `username`, `role`, `email`, `country`, `team`, `previousTeam`) VALUES
 (1, 'pieliedie', 'Capitaine', 'pieliedie@email.com', 'Canada', 1, NULL),
 (2, 'EternaLEnVy', 'player', 'EternaLEnVy@email.com', 'France', 1, NULL),
 (3, 'SingSing', 'player', 'SingSing@email.com', 'Canada', 1, NULL),
