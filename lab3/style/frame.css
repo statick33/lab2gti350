@@ -44,13 +44,14 @@ a:visited
 {
 	display:block;
 	background-image:url('images/button.png');
+	background-size: 150px 60px;
 	background-repeat:no-repeat;
-	width:209px;
+	width:150px;
 	text-align:center;
 	height:60px;
 	font-family:arial;
 	font-weight:bold;
-	font-size:20px;
+	font-size:16px;
 	cursor:pointer;
 	float:left;
 	z-index:2;
@@ -148,7 +149,7 @@ a:visited
 #centeredmenu ul li a {
    display:block;
    text-decoration:none;
-   line-height:1.3em;
+   line-height:1.9em;
 
 }
 #loginBox

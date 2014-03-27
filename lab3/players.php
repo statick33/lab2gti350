@@ -31,26 +31,28 @@
 	<?php endif; ?>
 	function triUsername(){
 		if(tri == "usernameA"){
-			window.location.href = '<?php echo  $_SERVER['SERVER_NAME']."". $_SERVER['PHP_SELF'] ;?>?tri=username&by=DESC&'+ search;
+			window.location.href = 'http://<?php echo  $_SERVER['SERVER_NAME']."". $_SERVER['PHP_SELF'] ;?>?tri=username&by=DESC&'+ search;
 		}
 		else{
-			window.location.href = '<?php echo  $_SERVER['SERVER_NAME']."". $_SERVER['PHP_SELF'] ;?>?tri=username&by=ASC&'+ search;
+			window.location.href = 'http://<?php echo  $_SERVER['SERVER_NAME']."". $_SERVER['PHP_SELF'] ;?>?tri=username&by=ASC&'+ search;
 		}
 	}
 	function triTeam(){
 		if(tri == "teamA"){
-			window.location.href = '<?php echo  $_SERVER['SERVER_NAME']."". $_SERVER['PHP_SELF'] ;?>?tri=team&by=DESC&'+ search;
+			window.location.href = 'http://<?php echo  $_SERVER['SERVER_NAME']."". $_SERVER['PHP_SELF'] ;?>?tri=team&by=DESC&'+ search;
 
 		}
 		else{
-			window.location.href = '<?php echo  $_SERVER['SERVER_NAME']."". $_SERVER['PHP_SELF'] ;?>?tri=team&by=ASC&'+ search;
+			window.location.href = 'http://<?php echo  $_SERVER['SERVER_NAME']."". $_SERVER['PHP_SELF'] ;?>?tri=team&by=ASC&'+ search;
 		}
 	}
 	function searchByUser(name){
 		if(name != ""){
-			window.location.href = '<?php echo  $_SERVER['SERVER_NAME']."". $_SERVER['PHP_SELF'] ;?>?search='+ name;
+			window.location.href = 'http://<?php echo  $_SERVER['SERVER_NAME']."". $_SERVER['PHP_SELF'] ;?>?search='+ name;
 		}
 	}
+	$(document).keypress(function(e) {
+
 </script>
 	<?php
 		include('mainContentBoxHeader.php'); 
@@ -62,7 +64,7 @@
 			<label for="txt_username">Search by Username :</label>
 			<input type="text" name="txt_username" id="txt_username" value="" />
 		</div>
-		<div style="float:left;" onclick="searchByUser(document.getElementById('txt_username').value)" class="smallButton">Search</div>
+		<button style="float:left; border:none;" onclick="searchByUser(document.getElementById('txt_username').value)" class="smallButton">Search</button>
 		<table class="players">
 			<tbody>
 				<tr>
@@ -80,7 +82,7 @@
 						$order = array("name" => $_GET['tri'], "order"=> $_GET['by']);
 					}
 					if(isset($_GET['search'])){
-						$search = array(array("name" => "username", "condition" => "=", "value" => $_GET['search']));
+						$search = array(array("name" => "username", "condition" => "LIKE", "value" => $_GET['search']. '%'));
 					}				
 					$players = $data->getAllPlayers($search,$order);
 					

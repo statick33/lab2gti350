@@ -148,7 +148,7 @@ class Data{
 				if($i > 0){
 					$sRequete .= " AND ";
 				}
-				$sRequete .= $a[$i]['name']. "" . $a[$i]['condition']."'". $a[$i]['value'] ."'";
+				$sRequete .= $a[$i]['name']. " " . $a[$i]['condition']." '". $a[$i]['value'] ."'";
 			}
 		}
 		else{

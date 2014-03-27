@@ -75,7 +75,7 @@
 			<label for="txt_name">Search by Name :</label>
 			<input type="text" name="txt_name" id="txt_name" value="" />
 		</div>
-		<div style="float:left;" onclick="searchByName(document.getElementById('txt_name').value)" class="smallButton">Search</div>
+		<button style="float:left;border:none;" onclick="searchByName(document.getElementById('txt_name').value)" class="smallButton">Search</button>
 		<table class="teams">
 			<tbody>
 				<tr>
@@ -93,7 +93,7 @@
 						$order = array("name" => $_GET['tri'], "order"=> $_GET['by']);
 					}
 					if(isset($_GET['search'])){
-						$search = array(array("name" => "name", "condition" => "=", "value" => $_GET['search']));
+						$search = array(array("name" => "name", "condition" => "LIKE", "value" => $_GET['search']. '%'));
 					}				
 					$teams = $data->getAllTeams($search, $order);
 				for($i =0; $i<count($teams); $i++){
