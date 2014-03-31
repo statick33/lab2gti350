@@ -51,7 +51,7 @@
 			window.location.href = 'http://<?php echo  $_SERVER['SERVER_NAME']."". $_SERVER['PHP_SELF'] ;?>?search='+ name;
 		}
 	}
-	$(document).keypress(function(e) {
+
 
 </script>
 	<?php
