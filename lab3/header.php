@@ -21,7 +21,6 @@
 	<script type="text/javascript">
 		function signup(form){
 			if(validate(form)){
-				alert("true");
 				$.ajax( "auth.php" )
 				  .done(function() {
 					window.location.href ='http://localhost/lab3/lab2gti350/lab3/auth.php';
